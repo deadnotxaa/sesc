@@ -1,2 +1,2 @@
-# sesc
-sesc ncfu
+# Templates for exam
+Problem 16
