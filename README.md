@@ -38,4 +38,21 @@ print(f(33))
 > F(n) = F(n // 10) + (n % 10).   
 > 
 > Найдите количество таких чисел в диапазоне от 865 432 015, 1 585 342 628, для которых **F(n) > F(n + 1)**.
+<br>
+Напишем код на Python, который должен решить задачу:
+```python
+from functools import lru_cache
 
+@lru_cache(None)
+def f(n):
+    if not n:
+        return 0
+    return f(n // 10) + (n % 10)
+
+
+xnt = 0
+for i in range(865_432_015, 1_585_342_628):
+    if f(i) > f(i + 1):
+        xnt += 1
+print(xnt)
+```
