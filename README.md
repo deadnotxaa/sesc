@@ -60,13 +60,15 @@ for i in range(865_432_015, 1_585_342_628):
     if f(i) > f(i + 1):
         xnt += 1
 print(xnt)
-```
-<br> 
-К сожалению, проработав 5 минут и использовав 4.5Гб оперативной памяти, программа завершается с ошибкой **MemoryError**.  
+```  
+
+К сожалению, проработав 5 минут и использовав 4.5Гб оперативной памяти, программа завершается с ошибкой **MemoryError**  
 Напишем аналогичный код на **C++**  
-<br>
-```c++  
+
+```cpp
 #include <bits/stdc++.h>
+#pragma GCC optimize("Ofast")
+using namespace std;
 
 int f(int n) {
     if (!n)
@@ -76,14 +78,16 @@ int f(int n) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr), cout.tie(nullptr);
+
     int cnt = 0;
     for (int i = 865432015; i <= 1585342628; ++i) {
         if (f(i) > f(i + 1))
             cnt++;
     }
     cout << cnt << '\n';
-    return 0;
 }
-```  
-<br>
+```
 Спустя 30 секунд получим ответ **71991061**
+
